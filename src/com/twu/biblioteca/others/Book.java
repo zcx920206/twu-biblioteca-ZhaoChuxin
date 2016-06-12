@@ -1,17 +1,17 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.others;
 
 
 /**
  * Created by cxzhao on 6/6/16.
  */
 public class Book {
-    String Name;
-    String author;
-    Integer year;
-    Boolean isCheckout;
+    private String name;
+    private String author;
+    private Integer year;
+    private Boolean isCheckout;
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public Boolean getCheckout() {
@@ -30,8 +30,8 @@ public class Book {
         return author;
     }
 
-    public void setInfo(String Name, String author, int year) {
-        this.Name = Name;
+    public void setInfo(String name, String author, int year) {
+        this.name = name;
         this.author = author;
         this.year = year;
     }
