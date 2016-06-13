@@ -1,8 +1,8 @@
-package com.twu.biblioteca.MVC;
+package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.others.Book;
-import com.twu.biblioteca.others.Movie;
-import com.twu.biblioteca.others.User;
+import com.twu.biblioteca.model.Book;
+import com.twu.biblioteca.model.Movie;
+import com.twu.biblioteca.model.User;
 
 import java.util.List;
 import java.util.Map;
@@ -10,24 +10,25 @@ import java.util.Map;
 /**
  * Created by cxzhao on 6/8/16.
  */
-public class View {
+public class Print {
     public void displayWelcomeMessage() {
         System.out.println("*******************************");
         System.out.println("Welcome to  Biblioteca!");
         System.out.println("Please Login");
 
     }
-    public void displayInputLibraryNumber(){
+
+    public void displayInputLibraryNumber() {
         System.out.println("*******************************");
         System.out.println("Library Number:");
     }
-    public void displayInputPassword(){
-        System.out.println("Password");
+
+    public void displayInputPassword() {
+        System.out.println("Password:");
     }
 
-
     public void displayMenu(int indentify) {
-        if(indentify==2){
+        if (indentify == 2) {
             System.out.println("1.List Books");
             System.out.println("2.Check out Book");
             System.out.println("3.Return Book");
@@ -37,9 +38,7 @@ public class View {
             System.out.println("7.Person Information");
             System.out.println("8.Logout");
             System.out.println("9.Quit");
-        }
-        else if(indentify==1)
-        {
+        } else if (indentify == 1) {
             System.out.println("1.List Checked out Books");
             System.out.println("2.Logout");
             System.out.println("3.Quit");
@@ -62,53 +61,64 @@ public class View {
         int i = 0;
         for (Map.Entry<String, Book> entry : allBooks.entrySet()) {
             i++;
-            System.out.println(i +".\nBookName:"+ entry.getValue().getName() +"\nBookAuthor:"+ entry.getValue().getAuthor() +"\nPublicYear:"+ entry.getValue().getYear()+"\nSerail:"+entry.getKey());
+            System.out.println(i + ".\nBookName:" + entry.getValue().getName() + "\nBookAuthor:" + entry.getValue().getAuthor() + "\nPublicYear:" + entry.getValue().getYear() + "\nSerail:" + entry.getKey());
         }
     }
-    public void displayMovies(Map<String,Movie>allMovies){
+
+    public void displayMovies(Map<String, Movie> allMovies) {
         System.out.println("THE LIST OF ALL AVALIBALE Movies:");
         int i = 0;
         for (Map.Entry<String, Movie> entry : allMovies.entrySet()) {
             i++;
-            System.out.println(i +".\nMovieName:"+ entry.getValue().getName() +"\nDirector:"+ entry.getValue().getDirector() +"\nPublicYear:"+ entry.getValue().getYear()+"\nMovieRate:"+entry.getValue().getMovieRation()+"\nSerail:"+entry.getKey());
+            System.out.println(i + ".\nMovieName:" + entry.getValue().getName() + "\nDirector:" + entry.getValue().getDirector() + "\nPublicYear:" + entry.getValue().getYear() + "\nMovieRate:" + entry.getValue().getMovieRation() + "\nSerail:" + entry.getKey());
         }
 
     }
-    public void displayOption(){
+
+    public void displayOption() {
         System.out.println("*******************************");
         System.out.print("Please input option:");
     }
-    public void displayInputBookSerail(){
+
+    public void displayInputBookSerail() {
         System.out.println("*******************************");
         System.out.print("please input book's serail:");
     }
-    public void displayInputMovieSerail(){
+
+    public void displayInputMovieSerail() {
         System.out.println("*******************************");
         System.out.print("please input movie's serail:");
     }
-    public void diplayPerInfo(String libraryNumber, List<User> users){
-        for (User user:users) {
-            if(libraryNumber.equals(user.getLibraryNumber()))
-            System.out.println("Name:"+user.getName()+"Email:"+user.getEmailAddress()+"PhoneNumber:"+user.getPhoneNumber());
+
+    public void diplayPerInfo(String libraryNumber, List<User> users) {
+        for (User user : users) {
+            if (libraryNumber.equals(user.getLibraryNumber()))
+                System.out.println("Name:" + user.getName() + "Email:" + user.getEmailAddress() + "PhoneNumber:" + user.getPhoneNumber());
             break;
         }
 
     }
-    public  void displayCheckoutInfo(List<User>users){
-        for (User user:users) {
-           if(user.getCheckoutBookName().size()>0) {
-               for (String bookName:user.getCheckoutBookName())
-               System.out.println("User:"+user.getName()+",BookName:"+bookName);
-           }
-            if (user.getCheckoutMovieName().size()>0){
-                for (String movieName:user.getCheckoutBookName())
-                    System.out.println("User:"+user.getName()+",movieName:"+movieName);
+
+    public void displayCheckoutInfo(List<User> users) {
+        for (User user : users) {
+            if (user.getCheckoutBookName().size() > 0) {
+                for (String bookName : user.getCheckoutBookName())
+                    System.out.println("User:" + user.getName() + ",BookName:" + bookName);
+            }
+            if (user.getCheckoutMovieName().size() > 0) {
+                for (String movieName : user.getCheckoutBookName())
+                    System.out.println("User:" + user.getName() + ",movieName:" + movieName);
             }
         }
     }
-    public void displayQuit(){
+
+    public void displayQuit() {
         System.out.println("*******************************");
         System.out.println("Thanks for coming !");
+    }
+
+    public void displayLoginWrong() {
+        System.out.println("The Library Number or Password is Wrong! ");
     }
 }
 

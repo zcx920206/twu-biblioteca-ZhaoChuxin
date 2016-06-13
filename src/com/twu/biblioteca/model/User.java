@@ -1,7 +1,6 @@
-package com.twu.biblioteca.others;
+package com.twu.biblioteca.model;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -14,8 +13,10 @@ public class User {
     private String passWord;
     private String libraryNumber;
     private int identify;
-    private List<String> checkoutBookName=new ArrayList<>();
-    private List<String> checkoutMovieName=new ArrayList<>();
+    public static int customer = 2;
+    public static int librarian = 1;
+    private List<String> checkoutBookName = new ArrayList<>();
+    private List<String> checkoutMovieName = new ArrayList<>();
 
     public List<String> getCheckoutBookName() {
         return checkoutBookName;
@@ -42,13 +43,13 @@ public class User {
     }
 
 
-    public User(String name, String emailAddress, String phoneNumber, String libraryNumber, String password,int identify) {
-        this.name=name;
-        this.emailAddress=emailAddress;
-        this.phoneNumber=phoneNumber;
-        this.libraryNumber=libraryNumber;
-        this.passWord=password;
-        this.identify=identify;
+    public User(String name, String emailAddress, String phoneNumber, String libraryNumber, String password, int identify) {
+        this.name = name;
+        this.emailAddress = emailAddress;
+        this.phoneNumber = phoneNumber;
+        this.libraryNumber = libraryNumber;
+        this.passWord = password;
+        this.identify = identify;
     }
 
     public String getPhoneNumber() {

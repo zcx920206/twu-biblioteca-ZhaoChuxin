@@ -1,4 +1,4 @@
-package com.twu.biblioteca.others;
+package com.twu.biblioteca.model;
 
 
 /**
@@ -8,18 +8,9 @@ public class Book {
     private String name;
     private String author;
     private Integer year;
-    private Boolean isCheckout;
 
     public String getName() {
         return name;
-    }
-
-    public Boolean getCheckout() {
-        return isCheckout;
-    }
-
-    public void setCheckout(Boolean checkout) {
-        isCheckout = checkout;
     }
 
     public Integer getYear() {

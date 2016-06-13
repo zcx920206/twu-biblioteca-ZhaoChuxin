@@ -1,15 +1,16 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.MVC.Controller;
-import com.twu.biblioteca.MVC.Model;
-import com.twu.biblioteca.MVC.View;
+import com.twu.biblioteca.controller.Controller;
+import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.view.Print;
 
 public class BibliotecaApp {
     public static void main(String[] args) {
-        Model model=new Model();
-        View view=new View();
-        Controller controller=new Controller(view,model);
-        view.displayWelcomeMessage();
+        Library library = new Library();
+        Print print = new Print();
+        Controller controller = new Controller(print, library);
+
+        print.displayWelcomeMessage();
         controller.setIdentify(controller.login());
         controller.start();
     }

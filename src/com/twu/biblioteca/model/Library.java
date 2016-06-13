@@ -1,8 +1,4 @@
-package com.twu.biblioteca.MVC;
-
-import com.twu.biblioteca.others.Book;
-import com.twu.biblioteca.others.Movie;
-import com.twu.biblioteca.others.User;
+package com.twu.biblioteca.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,14 +8,14 @@ import java.util.TreeMap;
 /**
  * Created by cxzhao on 6/6/16.
  */
-public class Model {
+public class Library {
     public Map<String, Book> allBooks = new TreeMap<>();
     public Map<String, Book> checkoutBooks = new TreeMap<>();
     public Map<String, Movie> allMovies = new TreeMap<>();
     public Map<String, Movie> checkoutMovies = new TreeMap<>();
     public List<User> users = new ArrayList<>();
 
-    public Model() {
+    public Library() {
         Book book1 = new Book();
         book1.setInfo("Wuthering Heights", "Emily Bronte", 1900);
         this.allBooks.put("NO.B01", book1);
@@ -44,13 +40,13 @@ public class Model {
         Movie movie3 = new Movie();
         movie3.setInfo("Star Wars ", 1977, "George Lucas", "9");
         this.allMovies.put("NO.M003", movie3);
-        User customer = new User("Lily", "123456@123.com", "13451236789", "qwe-zxc", "123456", 2);
-        User librarian = new User("Sarah", "111111@123.com", "134111111", "poi-mnb", "111111", 1);
+        User customer = new User("Lily", "123456@123.com", "13451236789", "qwe-zxc", "123456", User.customer);
+        User librarian = new User("Sarah", "111111@123.com", "134111111", "poi-mnb", "111111", User.librarian);
         this.users.add(customer);
         this.users.add(librarian);
     }
 
-    public Map<String, Book> getBooks() {
+    public Map<String, Book> getAllBooks() {
         return allBooks;
     }
 
